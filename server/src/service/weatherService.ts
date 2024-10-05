@@ -1,4 +1,4 @@
-/*
+
 import fs from 'node:fs/promises';
 import dotenv from 'dotenv';
 dotenv.config();
@@ -6,11 +6,8 @@ dotenv.config();
 // TODO: Define an interface for the Coordinates object -- NOT DONE need to define the "coordinates object"
 
 interface Coordinates {
-  id: string;
-  fullName: string;
-  description: string;
-  url: string;
-  designation: string;
+  lat: string;
+  lon: string;
 }
 
 
@@ -36,9 +33,9 @@ class WeatherService {
   private city?: string;
 
   constructor() {
-    this.baseURL = process.env.API_BASE_URL || '';
+    this.baseURL = process.env.API_BASE_URL || 'https://api.openweathermap.org';
 
-    this.apiKey = process.env.API_KEY || '';
+    this.apiKey = process.env.API_KEY || '59c998cb2e2f6af29e6145721795b2df';
 
     this.city = process.env.CITY_NAME || ""; 
   }
@@ -46,15 +43,15 @@ class WeatherService {
   // TODO: Create fetchLocationData method
   // private async fetchLocationData(query: string) {}
 
-  private async fetchLocationData(query: string) {
+  async fetchLocationData(query: string) {
     try {
       const response = await fetch(
-        `${this.baseURL}/parks?limit=10&stateCode=${query}&api_key=${this.apiKey}`
+        `${this.baseURL}/geo/1.0/direct?q=${query}&limit=1&appid=${this.apiKey}`
       );
 
       const location = await response.json();
 
-     \
+    
       return location;
     } catch (err) {
       console.log('Error:', err);
@@ -81,4 +78,3 @@ class WeatherService {
 }
 
 export default new WeatherService();
-*/
