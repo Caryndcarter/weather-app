@@ -1,0 +1,32 @@
+[
+  {
+    "name": "San Diego",
+    "id": "5391811",
+    "date": "10/26/2024",
+    "icon": "01d",
+    "iconDescription": "clear sky",
+    "tempF": 78.0260000000001,
+    "windSpeed": 3.6,
+    "humidity": 51
+  },
+  {
+    "name": "Chicago",
+    "id": "4887398",
+    "date": "10/26/2024",
+    "icon": "02d",
+    "iconDescription": "few clouds",
+    "tempF": 55.79600000000005,
+    "windSpeed": 4.63,
+    "humidity": 41
+  },
+  {
+    "name": "Charlotte",
+    "id": "4460243",
+    "date": "10/26/2024",
+    "icon": "02d",
+    "iconDescription": "few clouds",
+    "tempF": 82.058,
+    "windSpeed": 0,
+    "humidity": 46
+  }
+]
