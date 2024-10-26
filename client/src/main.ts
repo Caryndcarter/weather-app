@@ -48,7 +48,8 @@ const fetchWeather = async (cityName: string) => {
   console.log('weatherData: ', weatherData);
 
   renderCurrentWeather(weatherData[0]);
-  renderForecast(weatherData.slice(1));
+  console.log("a weather array" + weatherData[1].slice(1)); 
+  renderForecast(weatherData[1]);
 };
 
 const fetchSearchHistory = async () => {
@@ -100,6 +101,7 @@ const renderCurrentWeather = (currentWeather: any): void => {
 };
 
 const renderForecast = (forecast: any): void => {
+  console.log("an array probably " + forecast); 
   const headingCol = document.createElement('div');
   const heading = document.createElement('h4');
 
@@ -114,11 +116,13 @@ const renderForecast = (forecast: any): void => {
 
   for (let i = 0; i < forecast.length; i++) {
     renderForecastCard(forecast[i]);
+     console.log("forecast i" + forecast[i].city); 
   }
 };
 
 const renderForecastCard = (forecast: any) => {
   const { date, icon, iconDescription, tempF, windSpeed, humidity } = forecast;
+  console.log("another forecast" + forecast.date);
 
   const { col, cardTitle, weatherIcon, tempEl, windEl, humidityEl } =
     createForecastCard();
