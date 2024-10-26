@@ -1,11 +1,11 @@
 
-import fs from 'node:fs/promises';
+//import fs from 'node:fs/promises';
 import dotenv from 'dotenv';
 dotenv.config();
 
 // TODO: Define an interface for the Coordinates object -- NOT DONE need to define the "coordinates object"
 
-interface Coordinates {
+/*interface Coordinates {
   lat: string;
   lon: string;
 }
@@ -22,6 +22,7 @@ class Weather {
     this.id = id;
   }
 }
+  */
 
 // TODO: Complete the WeatherService class
 class WeatherService {
@@ -30,14 +31,14 @@ class WeatherService {
 
   private apiKey?: string;
 
-  private city?: string;
+  //private city?: string;
 
   constructor() {
     this.baseURL = process.env.API_BASE_URL || 'https://api.openweathermap.org';
 
     this.apiKey = process.env.API_KEY || '59c998cb2e2f6af29e6145721795b2df';
 
-    this.city = process.env.CITY_NAME || ""; 
+    //this.city = process.env.CITY_NAME || ""; 
   }
 
   // TODO: Create fetchLocationData method
