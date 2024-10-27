@@ -51,11 +51,14 @@ class WeatherService {
   
   // TODO: Complete getWeatherForCity method
   // async getWeatherForCity(city: string) {}
-  async getWeatherForCity(cityName: string): 
+  async getWeatherForCity(cityName: string): Promise<[Weather]> {
     const coordinates = await this.fetchLocationData(cityName);
-  
+    const weatherData = await this.fetchWeatherData(coordinates);
 
-  
+    const currentWeather = this.parseCurrentWeather(weatherData);
+
+
+    return [currentWeather];
 
   }
   
@@ -93,15 +96,15 @@ class WeatherService {
 
   // TODO: Build parseCurrentWeather method
   // private parseCurrentWeather(response: any) {}
-  private parseCurrentWeather(data: any): Weather {
-    const currentWeather = data;
-    const city = data[0];
-    const date = 
-    const icon = 
-    const iconDescription = 
-    const tempF =
-    const windSpeed = 
-    const humidity = 
+  private parseCurrentWeather(response: any): Weather {
+    const currentWeather =  response.list[0];
+    const city =  response.city.name;
+    const date = "10/12/2023"; 
+    const icon = currentWeather.weather[0].icon;
+    const iconDescription = currentWeather.weather[0].description;
+    const tempF = currentWeather.main.temp;
+    const windSpeed = currentWeather.wind.speed;
+    const humidity = currentWeather.main.humidity;
 
     return new Weather(city, date, icon, iconDescription, tempF, windSpeed, humidity);
   }

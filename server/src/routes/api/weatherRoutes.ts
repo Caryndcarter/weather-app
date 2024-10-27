@@ -2,7 +2,7 @@ import { Router, type Request, type Response } from 'express';
 const router = Router();
 
 //import HistoryService from '../../service/historyService.js';
-import WeatherService from '../../service/weatherService.js';
+//import WeatherService from '../../service/weatherService.js';
 
 // TODO: POST Request with city name to retrieve weather data
 router.post('/', async (req: Request, res: Response) => {
@@ -15,9 +15,10 @@ router.post('/', async (req: Request, res: Response) => {
       return res.status(400).json({ error: 'City name is required' });
     }
 
+    return cityName; 
   }catch (error) {
-      console.error('Error fetching weather data:', error);
-      return res.status(500).json({ error: 'Failed to retrieve weather data' });
+      console.error('Error no weather data:', error);
+      return res.status(500).json({ error: 'No weather data' });
     }
 
 });
