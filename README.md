@@ -35,19 +35,20 @@ https://openweathermap.org/api
 
 ## Usage
 
-If you download teh repo, begin by running ``npm run start`` in the command line.
+If you download the repo, begin by running ``npm run start`` in the command line.
 
 From there you will be prompted to open http://localhost:3001.  
 
-On the homepage, you can see a box to enter a City Name and hit search.  You will then be shown today's weather forecast inforamtion to the right.  Temperature, precipitation and humidity along with overall description will apepar.  
+On the homepage, you can see a box to enter a City Name and hit search.  You will then be shown today's weather forecast inforamtion on top to the right.  Temperature, wind, humidity, and an overall weather descriptive icon will apepar.  
 
 You will see your chosen city listed below as well in your search history.  
 You can delete your city if you hit the trash can icon. Then your city will be removed from the history.
-You will also see the next 5 days forecast for that city shown as well.
+
+You will also see the next 5 days forecast for that city shown to the right below today's weather.
 
 You can also experience this app at this URL for the hosted version:
 
-![Demo](./dev/assets/readme-generator-screenshot.png)
+![Demo](./assets/readme-generator-screenshot.png)
 
 ## License
 

@@ -51,14 +51,14 @@ class WeatherService {
   
   // TODO: Complete getWeatherForCity method
   // async getWeatherForCity(city: string) {}
-  async getWeatherForCity(cityName: string): Promise<[Weather]> {
+  async getWeatherForCity(cityName: string) {
     const coordinates = await this.fetchLocationData(cityName);
     const weatherData = await this.fetchWeatherData(coordinates);
 
     const currentWeather = this.parseCurrentWeather(weatherData);
+    const forecastArray = this.buildForecastArray(weatherData);
 
-
-    return [currentWeather];
+    return [currentWeather, forecastArray];
 
   }
   
@@ -88,7 +88,7 @@ class WeatherService {
   }
 
   // TODO: Create fetchWeatherData method
-  private async fetchWeatherData(coordinates: Coordinates): Promise<any> {
+  private async fetchWeatherData(coordinates: Coordinates) {
     const query = `${this.buildWeatherQuery()}&lat=${coordinates.lat}&lon=${coordinates.lon}`;
     const response = await fetch(query);
     return response.json();
@@ -109,15 +109,41 @@ class WeatherService {
     return new Weather(city, date, icon, iconDescription, tempF, windSpeed, humidity);
   }
  
-
-  // TODO: Create fetchAndDestructureLocationData method
-  // private async fetchAndDestructureLocationData() {}
-
-
   // TODO: Complete buildForecastArray method
   //private buildForecastArray(data: any): Weather[] {
     //const forecastArray: Weather[] = [];
     //const cityName = data.city.name;
+
+  private buildForecastArray(data: any): Weather[] {
+      const forecastArray: Weather[] = [];
+      const cityName = data.city.name;
+  
+      // Filter forecasts to find entries between 11:00 AM and 1:00 PM for the next five days
+      const noonForecasts = data.list.filter((forecast: any) => {
+        const time = new Date(forecast.dt * 1000).getHours();
+        return time >= 11 && time <= 13;  // Matches forecasts close to 12:00 PM
+      });
+  
+      // Select five forecasts, one per day
+      let lastDate = '';
+      noonForecasts.forEach((forecast: any) => {
+          const date = new Date(forecast.dt * 1000).toLocaleDateString();
+          
+          // Avoid adding multiple forecasts for the same date
+          if (date !== lastDate && forecastArray.length < 5) {
+              const icon = forecast.weather[0].icon;
+              const iconDescription = forecast.weather[0].description;
+              const tempF = forecast.main.temp;
+              const windSpeed = forecast.wind.speed;
+              const humidity = forecast.main.humidity;
+  
+              forecastArray.push(new Weather(cityName, date, icon, iconDescription, tempF, windSpeed, humidity));
+              lastDate = date;  // Update lastDate to prevent duplicate entries for the same day
+          }
+      });
+      console.log("forecast Array from function" + forecastArray[0].city); 
+      return forecastArray;
+  }
 
 
 }
