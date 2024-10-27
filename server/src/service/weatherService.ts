@@ -115,7 +115,10 @@ class WeatherService {
 
 
   // TODO: Complete buildForecastArray method
-  // private buildForecastArray(currentWeather: Weather, weatherData: any[]) {}
+  private buildForecastArray(data: any): Weather[] {
+    const forecastArray: Weather[] = [];
+    const cityName = data.city.name;
+
 
 }
 
