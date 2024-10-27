@@ -5,13 +5,25 @@ const router = Router();
 import WeatherService from '../../service/weatherService.js';
 
 // TODO: POST Request with city name to retrieve weather data
-router.get('/', async (req: Request, res: Response) => {
-  const geoData = await WeatherService.fetchLocationData("Atlanta");
-  res.json(geoData);
-  console.log(req);
-  // TODO: GET weather data from city name
-  // TODO: save city to search history
+router.post('/', async (req: Request, res: Response) => {
+    // TODO: GET weather data from city name
+
+  try {
+    const { cityName } = req.body;
+    console.log(cityName); 
+    if (!cityName) {
+      return res.status(400).json({ error: 'City name is required' });
+    }
+
+  }catch (error) {
+      console.error('Error fetching weather data:', error);
+      return res.status(500).json({ error: 'Failed to retrieve weather data' });
+    }
+
 });
+
+  // TODO: save city to search history
+
 
 // TODO: GET search history
 router.get('/history', async (req: Request, res: Response) => {

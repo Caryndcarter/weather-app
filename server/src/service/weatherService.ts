@@ -91,14 +91,26 @@ class WeatherService {
     return response.json();
   }
 
+  // TODO: Build parseCurrentWeather method
+  // private parseCurrentWeather(response: any) {}
+  private parseCurrentWeather(data: any): Weather {
+    const currentWeather = data;
+    const city = data[0];
+    const date = 
+    const icon = 
+    const iconDescription = 
+    const tempF =
+    const windSpeed = 
+    const humidity = 
+
+    return new Weather(city, date, icon, iconDescription, tempF, windSpeed, humidity);
+  }
  
- 
-  // private buildWeatherQuery(coordinates: Coordinates): string {}
+
   // TODO: Create fetchAndDestructureLocationData method
   // private async fetchAndDestructureLocationData() {}
 
-  // TODO: Build parseCurrentWeather method
-  // private parseCurrentWeather(response: any) {}
+
   // TODO: Complete buildForecastArray method
   // private buildForecastArray(currentWeather: Weather, weatherData: any[]) {}
 
