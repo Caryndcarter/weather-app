@@ -48,7 +48,7 @@ You will also see the next 5 days forecast for that city shown to the right belo
 
 On the back end, the application should include a `searchHistory.json` file that will be used to store and retrieve cities using the `fs` module.
 
-You can also experience this app at this URL for the hosted version:
+You can also experience this app at this URL for the hosted version: https://weather-app-j9eg.onrender.com/
 
 ![Demo](./assets/weather-app-screenshot.png)
 
