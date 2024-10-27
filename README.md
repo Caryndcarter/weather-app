@@ -46,6 +46,8 @@ You can delete your city if you hit the trash can icon. Then your city will be r
 
 You will also see the next 5 days forecast for that city shown to the right below today's weather.
 
+On the back end, the application should include a `searchHistory.json` file that will be used to store and retrieve cities using the `fs` module.
+
 You can also experience this app at this URL for the hosted version:
 
 ![Demo](./assets/weather-app-screenshot.png)
