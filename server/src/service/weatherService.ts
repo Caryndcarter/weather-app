@@ -19,12 +19,25 @@ class Weather {
   windSpeed: number;
   humidity: number;
 
-  constructor(name: string, id: string) {
-    this.name = name;
-    this.id = id;
+  constructor(
+    city: string,
+    date: string,
+    icon: string,
+    iconDescription: string,
+    tempF: number,
+    windSpeed: number,
+    humidity: number
+  ) {
+    this.city = city;
+    this.date = date;
+    this.icon = icon;
+    this.iconDescription = iconDescription;
+    this.tempF = tempF;
+    this.windSpeed = windSpeed;
+    this.humidity = humidity;
   }
 }
-  */
+
 
 // TODO: Complete the WeatherService class
 class WeatherService {
