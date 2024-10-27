@@ -51,7 +51,13 @@ class WeatherService {
   
   // TODO: Complete getWeatherForCity method
   // async getWeatherForCity(city: string) {}
+  async getWeatherForCity(cityName: string): 
+    const coordinates = await this.fetchLocationData(cityName);
+  
 
+  
+
+  }
   
  // TODO: Create buildGeocodeQuery method
   // private buildGeocodeQuery(): string {}
@@ -68,24 +74,29 @@ class WeatherService {
   }
 
   // TODO: Create destructureLocationData method
-  // private destructureLocationData(locationData: Coordinates): Coordinates {}
   private destructureLocationData(data: any): Coordinates {
     const { lat, lon } = data[0];
     return { lat, lon };
   }
 
+ // TODO: Create buildWeatherQuery method
+  private buildWeatherQuery(): string {
+    return `${this.baseURL}/data/2.5/forecast?appid=${this.apiKey}&units=imperial`;
+  }
 
-
-
-
+  // TODO: Create fetchWeatherData method
+  private async fetchWeatherData(coordinates: Coordinates): Promise<any> {
+    const query = `${this.buildWeatherQuery()}&lat=${coordinates.lat}&lon=${coordinates.lon}`;
+    const response = await fetch(query);
+    return response.json();
+  }
 
  
-  // TODO: Create buildWeatherQuery method
+ 
   // private buildWeatherQuery(coordinates: Coordinates): string {}
   // TODO: Create fetchAndDestructureLocationData method
   // private async fetchAndDestructureLocationData() {}
-  // TODO: Create fetchWeatherData method
-  // private async fetchWeatherData(coordinates: Coordinates) {}
+
   // TODO: Build parseCurrentWeather method
   // private parseCurrentWeather(response: any) {}
   // TODO: Complete buildForecastArray method
