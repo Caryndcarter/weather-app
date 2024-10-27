@@ -5,8 +5,6 @@
 
 This application was created to gather the week's weather and forecast data from the OpenWeather API for the city chosen by the user.  It was created in Javascript using Node.js, Typescript and with Express for routing. 
 
-https://openweathermap.org/api
-
 ## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
@@ -24,6 +22,17 @@ Ensure that you have a .env file that has your API key within it.
 API_BASE_URL=https://api.openweathermap.org
 API_KEY= {Your key goes here}
 
+The base URL should look like the following:
+
+https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
+
+After registering for a new API key, you may need to wait up to 2 hours for that API key to activate.
+
+For more information on how to work with the OpenWeather API, refer to the Full-Stack Blog on how to use API keys. 
+https://openweathermap.org/api
+
+
+
 ## Usage
 
 If you download teh repo, begin by running ``npm run start`` in the command line.
@@ -37,6 +46,8 @@ You can delete your city if you hit the trash can icon. Then your city will be r
 You will also see the next 5 days forecast for that city shown as well.
 
 You can also experience this app at this URL for the hosted version:
+
+![Demo](./dev/assets/readme-generator-screenshot.png)
 
 ## License
 
