@@ -1,21 +1,23 @@
-
-//import fs from 'node:fs/promises';
+import fetch from 'node-fetch';
 import dotenv from 'dotenv';
 dotenv.config();
 
-// TODO: Define an interface for the Coordinates object -- NOT DONE need to define the "coordinates object"
-
-/*interface Coordinates {
+// TODO: Define an interface for the Coordinates object
+interface Coordinates {
   lat: string;
   lon: string;
 }
 
-
-// TODO: Define a class for the Weather object -- NOT DONE need to define the weather object
+// TODO: Define a class for the Weather object
 
 class Weather {
-  name: string;
-  id: string;
+  city: string;
+  date: string;
+  icon: string;
+  iconDescription: string;
+  tempF: number;
+  windSpeed: number;
+  humidity: number;
 
   constructor(name: string, id: string) {
     this.name = name;
