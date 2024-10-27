@@ -99,7 +99,7 @@ class WeatherService {
   private parseCurrentWeather(response: any): Weather {
     const currentWeather =  response.list[0];
     const city =  response.city.name;
-    const date = "10/12/2023"; 
+    const date = new Date(currentWeather.dt * 1000).toLocaleDateString();
     const icon = currentWeather.weather[0].icon;
     const iconDescription = currentWeather.weather[0].description;
     const tempF = currentWeather.main.temp;
@@ -115,9 +115,9 @@ class WeatherService {
 
 
   // TODO: Complete buildForecastArray method
-  private buildForecastArray(data: any): Weather[] {
-    const forecastArray: Weather[] = [];
-    const cityName = data.city.name;
+  //private buildForecastArray(data: any): Weather[] {
+    //const forecastArray: Weather[] = [];
+    //const cityName = data.city.name;
 
 
 }
