@@ -16,18 +16,18 @@ router.post('/', async (req: Request, res: Response) => {
     }
       // Retrieve weather data
     const weatherData = await WeatherService.getWeatherForCity(cityName);
-    
-    
+
+     // TODO: save city to search history
+    await HistoryService.addCity(cityName);
+
     return res.json(weatherData);
+    
 
     } catch (error) {
         console.error('Error no weather data:', error);
         return res.status(500).json({ error: 'Failed no weather data' });
     }
 });
-
-
-  // TODO: save city to search history
 
 
   // TODO: GET search history
@@ -38,9 +38,9 @@ router.post('/', async (req: Request, res: Response) => {
         res.json(searchHistory);
 
       } catch (error) {
-        console.error('Error no search history:', error);
-        res.status(500).json({ error: 'Failed no search history' });
-      }
+          console.error('Error no search history:', error);
+          res.status(500).json({ error: 'Failed no search history' });
+        }
   });
 
 
@@ -50,11 +50,11 @@ router.post('/', async (req: Request, res: Response) => {
       try {
         const { id } = req.params;
         await HistoryService.removeCity(id);
-        res.status(200).json({ message: 'City deleted from search history' });
+        res.status(200).json({ message: 'City deleted' });
 
       } catch (error) {
-        console.error('Error deleting city from search history:', error);
-        res.status(500).json({ error: 'Failed to delete city from search history' });
+          console.error('Error deleting city', error);
+          res.status(500).json({ error: 'Did not delete city' });
       }
 });
 
