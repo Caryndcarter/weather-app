@@ -48,7 +48,7 @@ You will also see the next 5 days forecast for that city shown to the right belo
 
 You can also experience this app at this URL for the hosted version:
 
-![Demo](./assets/readme-generator-screenshot.png)
+![Demo](./assets/weather-app-screenshot.png)
 
 ## License
 
